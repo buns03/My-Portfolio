@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services - Justin Faderanga</title>
+  <link rel="stylesheet" href="css/socials.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav class="nav-container">
+      <div class="nav-left">
+        <a href="home.html" class="home-link">Home</a>
+      </div>
+
+      <div class="nav-toggle">
+          <img src="css/assets/menu.png"/>
+        </div>
+
+      <ul class="nav-right">
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a class="active" href="socials.html">Socials</a></li>
+        <li><a href="contact.html">Contacts</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="services-section">
+    <h2>Social Media</h2>
+    <div class="services-grid">
+      <div class="service-box">
+        <div class="icon"><img src="css/assets/facebook.png"/></div>
+      </div>
+      <div class="service-box">
+        <div class="icon"><img src="css/assets/instagram.png"/></div>
+      </div>
+      <div class="service-box">
+        <div class="icon"><img src="css/assets/line.png"/></div>
+      </div>
+      <div class="service-box">
+        <div class="icon"><img src="css/assets/telegram.png"/></div>
+      </div>
+      <div class="service-box">
+        <div class="icon"><img src="css/assets/discord (1).png"/></div>
+      </div>
+      <div class="service-box">
+        <div class="icon"><img src="css/assets/github (1).png"/></div>
+      </div>
+      <div class="service-box">
+        <div class="icon"><img src="css/assets/twitter (1).png"/></div>
+      </div>
+      <div class="service-box">
+        <div class="icon"><img src="css/assets/social-media (1).png"/></div>
+      </div>
+    </div>
+  </section>
+ <script>
+  document.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function (e) {
+      const href = this.getAttribute('href');
+
+      // Ignore anchor or empty links
+      if (!href || href.startsWith('#')) return;
+
+      e.preventDefault();
+
+      const grid = document.querySelector('.services-grid');
+      const heading = document.querySelector('.services-section h2');
+
+      grid.classList.add('exit-animation');
+      heading.style.animation = 'popOut 0.5s ease forwards';
+
+      setTimeout(() => {
+        window.location.href = href;
+      }, 500); // wait for exit animation
+    });
+  });
+
+  const navToggle = document.querySelector('.nav-toggle');
+  const navRight = document.querySelector('.nav-right');
+
+  navToggle.addEventListener('click', () => {
+    navRight.classList.toggle('show');
+  });
+</script>
+
+</body>
+</html>

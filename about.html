@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Me - Justin Faderanga</title>
+  <link rel="stylesheet" href="css/about.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav class="nav-container">
+      <div class="nav-left">
+        <a href="home.html" class="home-link">Home</a>
+      </div>
+
+      <div class="nav-toggle">
+          <img src="css/assets/menu.png"/>
+        </div>
+
+      <ul class="nav-right">
+        <li><a href="about.html" class="active">About Me</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="socials.html">Socials</a></li>
+        <li><a href="contact.html">Contacts</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="about-section">
+    <div class="about-container">
+      <div class="profile-image">
+        <img src="css/assets/2x2.png" alt="Justin Faderanga" />
+      </div>
+      <div class="about-text">
+        <div class="card">
+          <h2>Who Am I</h2>
+          <p>I am Justin Faderanga, and it is my mission to bring my pieces into reality and make use of it to support globalization. It would be my pleasure to bring an impact to an organization using my artistic feature while keeping up with all the trends.</p>
+        </div>
+        <div class="card">
+          <h2>Educational Background</h2>
+          <p><strong>Bachelor of Science in Information System</strong><br>
+          La Concepcion College<br>
+          2023 - Present</p>
+
+          <p><strong>Information Communication Technology</strong><br>
+          Jarmmeth College Senior High School<br>
+          2021 - 2023</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   <script>
+    const links = document.querySelectorAll("nav a, .btn");
+    const heroText = document.querySelector(".about-text");
+    const heroImage = document.querySelector(".profile-image");
+
+    links.forEach(link => {
+      link.addEventListener("click", function(e) {
+        e.preventDefault(); // Prevent immediate navigation
+        const href = this.getAttribute("href");
+
+        // Add exit animations to content (image and text)
+        heroImage.style.animation = "slideOutLeft 0.5s forwards";
+        heroText.style.animation = "slideOutRight 0.5s forwards";
+
+        // Wait for animations to finish before navigating
+        setTimeout(() => {
+          window.location.href = href;
+        }, 500); // Match animation duration
+      });
+    });
+
+    const navToggle = document.querySelector('.nav-toggle');
+  const navRight = document.querySelector('.nav-right');
+
+  navToggle.addEventListener('click', () => {
+    navRight.classList.toggle('show');
+  });
+  </script>
+
+</body>
+</html>

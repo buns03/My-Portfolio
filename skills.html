@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Skills - Justin Faderanga</title>
+  <link rel="stylesheet" href="css/skills.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav class="nav-container">
+      <div class="nav-left">
+        <a href="home.html" class="home-link">Home</a>
+      </div>
+
+      <div class="nav-toggle">
+          <img src="css/assets/menu.png"/>
+        </div>
+
+      <ul class="nav-right">
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="skills.html" class="active">Skills</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="socials.html">Socials</a></li>
+        <li><a href="contact.html">Contacts</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="skills-section">
+    <h2>Skills</h2>
+    <div class="skills-container">
+      <div class="skill-column">
+        <p>Traditional Art <span class="stars">★★★★★</span></p>
+        <p>Image Editing <span class="stars">★★★★☆</span></p>
+        <p>Javascript <span class="stars">★★★☆☆</span></p>
+        <p>MySQL <span class="stars">★★★☆☆</span></p>
+      </div>
+      <div class="skill-column">
+        <p>Digital Art <span class="stars">★★★★★</span></p>
+        <p>Graphic Designing <span class="stars">★★★★☆</span></p>
+        <p>CSS <span class="stars">★★☆☆☆</span></p>
+        <p>C++ <span class="stars">★★★★☆</span></p>
+      </div>
+      <div class="skill-column">
+        <p>Video Editing <span class="stars">★★★★☆</span></p>
+        <p>HTML <span class="stars">★★★☆☆</span></p>
+        <p>Java <span class="stars">★★★★★</span></p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+  const links = document.querySelectorAll("nav a, .btn");
+  const skillsSection = document.querySelector(".skills-section");
+  const skillsContainer = document.querySelector(".skills-container");
+  const skillColumns = document.querySelectorAll(".skill-column");
+
+  links.forEach(link => {
+    link.addEventListener("click", function(e) {
+      e.preventDefault(); // Prevent immediate navigation
+      const href = this.getAttribute("href");
+
+      // Add exit animations
+      skillsSection.classList.add("exit");
+      skillsContainer.classList.add("exit");
+      skillColumns.forEach(column => column.classList.add("exit"));
+
+      // Wait for animations to finish before navigating
+      setTimeout(() => {
+        window.location.href = href;
+      }, 500); // Match animation duration
+    });
+  });
+
+  const navToggle = document.querySelector('.nav-toggle');
+  const navRight = document.querySelector('.nav-right');
+
+  navToggle.addEventListener('click', () => {
+    navRight.classList.toggle('show');
+  });
+</script>
+
+</body>
+</html>

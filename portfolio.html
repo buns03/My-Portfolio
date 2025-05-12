@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="css/portfolio.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="nav-container">
+        <div class="nav-left">
+          <a href="home.html" class="home-link">Home</a>
+        </div>
+
+        <div class="nav-toggle">
+          <img src="css/assets/menu.png"/>
+        </div>
+
+        <ul class="nav-right">
+          <li><a href="about.html">About Me</a></li>
+          <li><a href="skills.html">Skills</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a class="active" href="portfolio.html">Portfolio</a></li>
+          <li><a href="socials.html">Socials</a></li>
+          <li><a href="contact.html">Contacts</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div id="mainContent">
+      <main class="portfolio">
+        <section>
+          <h3>Fan Arts</h3>
+          <div class="image-grid">
+            <img
+              src="css/assets/fanart1.jpg"
+              class="expandable"
+              alt="Fan Art 1"
+            />
+            <img
+              src="css/assets//fanart2.jpg"
+              class="expandable"
+              alt="Fan Art 2"
+            />
+          </div>
+
+          <h3>Original Arts</h3>
+          <div class="image-grid">
+            <img
+              src="css/assets/ogart1.jpg"
+              class="expandable"
+              alt="Original Art 1"
+            />
+            <img
+              src="css/assets/ogart2.jpg"
+              class="expandable"
+              alt="Original Art 2"
+            />
+            <img
+              src="css/assets/ogart3.png"
+              class="expandable"
+              alt="Original Art 3"
+            />
+          </div>
+
+          <h3>Image Editing</h3>
+          <div class="image-grid gallery-group" data-group="editing">
+            <img src="css/assets/edited.jpg" alt="Edit" />
+          </div>
+
+          <h3>UI/UX Developing</h3>
+          <div class="image-grid gallery-group">
+         
+            <img src="css/assets/ui/lf1.png" alt="1" data-group="uiux"/>
+            <img src="css/assets/ui/f1.png" alt="2" data-group="uiux2" />
+      
+          </div>
+
+          <h3>Tools I Use</h3>
+          <div class="image-grids">
+            <img src="css/assets/canva.png" alt="canva" />
+            <img src="css/assets/capcut.png" alt="capcut" />
+            <img src="css/assets/lr.png" alt="lightroom" />
+            <img src="css/assets/ps.png" alt="photoshop" />
+            <img src="css/assets/picsart.jpg" alt="picsart" />
+            <img src="css/assets/ibis.png" alt="ibis paint" />
+            <img src="css/assets/sai.png" alt="paint tool sai" />
+            <img src="css/assets/ij.png" alt="intellij ide" />
+            <img src="css/assets/vs.png" alt="visual studio code" />
+            <img src="css/assets/gsuite.jpg" alt="google suite" />
+            <img src="css/assets/micro.png" alt="microsoft 365" />
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Popup Modal -->
+    <div class="popup-overlay" id="popup">
+      <div class="popup-content">
+        <span class="close-btn" id="closePopup">&times;</span>
+        <img src="" alt="Expanded" id="popupImage" />
+      </div>
+    </div>
+
+    <div class="popup-gallery" id="stepPopup">
+      <div class="close-btn" id="closeStepPopup">&times;</div>
+      <img id="stepImage" src="" alt="Step View" />
+      <button id="prevBtn" class="nav-btn"><-</button>
+      <button id="nextBtn" class="nav-btn">-></button>
+    </div>
+
+    <div class="popup-overlay" id="galleryPopup">
+      <div class="popup-content">
+        <span class="close-btn" id="closeGallery">&times;</span>
+        <div id="galleryContent" class="gallery-content"></div>
+      </div>
+    </div>
+    <script src="script/portfolio.js"></script>
+
+  </body>
+</html>

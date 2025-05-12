@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Services - Justin Faderanga</title>
+  <link rel="stylesheet" href="css/services.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav class="nav-container">
+      <div class="nav-left">
+        <a href="home.html" class="home-link">Home</a>
+      </div>
+
+      <div class="nav-toggle">
+          <img src="css/assets/menu.png"/>
+        </div>
+
+      <ul class="nav-right">
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="socials.html">Socials</a></li>
+        <li><a href="contact.html">Contacts</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="services-section">
+    <h2>What I Do</h2>
+    <div class="services-grid">
+      <div class="service-box">
+        <div class="icon"><img src="css/assets/laptop.png"/></div>
+        <h3>Digital Illustration Making</h3>
+        <p>I create fanarts and own digital characters with fascinating designs and ideas.</p>
+      </div>
+      <div class="service-box">
+        <div class="icon"><img src="css/assets/video-editing.png"/></div>
+        <h3>Video Editing</h3>
+        <p>I enhance videos to make it appealing and eye catching.</p>
+      </div>
+      <div class="service-box">
+        <div class="icon"><img src="css/assets/image-editing.png"/></div>
+        <h3>Image Editing</h3>
+        <p>I manipulate images through color grading and masking making it look real.</p>
+      </div>
+      <div class="service-box">
+        <div class="icon"><img src="css/assets/user-interface.png"/></div>
+        <h3>UI/UX Developing</h3>
+        <p>I develop user-friendly interfaces that are visually appealing.</p>
+      </div>
+      <div class="service-box">
+        <div class="icon"><img src="css/assets/freelancer.png"/></div>
+        <h3>Freelancing</h3>
+        <p>I am flexible and can work any tasks with proper guidance.</p>
+      </div>
+      <div class="service-box">
+        <div class="icon"><img src="css/assets/graphic-design.png"/></div>
+        <h3>Graphic Designing</h3>
+        <p>I am creative and can create design for object depending on the context.</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+  const links = document.querySelectorAll("nav a");
+  const servicesSection = document.querySelector(".services-section");
+  const servicesGrid = document.querySelector(".services-grid");
+  const serviceBoxes = document.querySelectorAll(".service-box");
+
+  links.forEach(link => {
+    link.addEventListener("click", function(e) {
+      e.preventDefault(); // Prevent immediate navigation
+      const href = this.getAttribute("href");
+
+      // Add exit animations
+      servicesSection.classList.add("exit");
+      servicesGrid.classList.add("exit");
+      serviceBoxes.forEach(box => box.classList.add("exit"));
+
+      // Wait for animations to finish before navigating
+      setTimeout(() => {
+        window.location.href = href;
+      }, 500); // Match animation duration
+    });
+  });
+
+  const navToggle = document.querySelector('.nav-toggle');
+  const navRight = document.querySelector('.nav-right');
+
+  navToggle.addEventListener('click', () => {
+    navRight.classList.toggle('show');
+  });
+</script>
+
+</body>
+</html>

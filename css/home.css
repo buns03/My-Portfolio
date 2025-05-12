@@ -1,0 +1,320 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #1B1B1B, #333333);
+  color: white;
+  overflow: hidden;
+}
+
+header {
+  background-color: transparent;
+  padding: 20px 0;
+}
+
+.nav-container {
+  margin-top: -20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10%;
+  animation: slideDown 0.8s ease forwards;
+}
+
+.nav-left .home-link {
+  font-size: 1.5em;
+  font-weight: 700;
+  color: #00BCD4;
+  text-decoration: none;
+}
+
+.nav-right {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-right li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-right li a:hover {
+  color: #00BCD4;
+}
+
+/* Animation keyframes */
+@keyframes slideInRight {
+  from {
+    transform: translateX(50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero Section */
+.hero {
+  height: calc(100vh - 100px); /* Full height minus navbar */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10%;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.hero-text {
+  flex: 1;
+  align-self: center;
+  text-align: left;
+  padding-right: 30px;
+  margin-top: -90px;
+}
+
+.hero-text .line1,
+.hero-text .line2 {
+  font-size: 3em;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+}
+
+/* Line 1: "Hi there," — no blinking cursor */
+.hero-text .line1 {
+  width: 0;
+  animation: typing .5s steps(15, end) forwards;
+}
+
+/* Line 2: "I'm Justin Faderanga." — with blinking cursor */
+.hero-text .line2 {
+  width: 0;
+  border-right: 2px solid #00BCD4;
+  animation:
+    typing .5s steps(25, end) forwards,
+    blink 0.7s step-end infinite;
+  animation-delay: .5s;
+  animation-fill-mode: forwards;
+}
+
+/* Stop blinking after typing ends */
+.hero-text .line2.finished {
+  border-right: none;
+  animation: none;
+}
+
+/* After typing: fade in paragraph and button */
+.hero-text p,
+.hero-text .btn {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 1s; /* after line1 + line2 animations */
+}
+
+.hero-text h1 span {
+  color: #00BCD4;
+}
+
+.hero-text p {
+  font-size: 1.2em;
+  margin-bottom: 25px;
+  color: #ccc;
+}
+
+.btn {
+  background-color: #00BCD4;
+  color: white;
+  padding: 12px 30px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 1em;
+}
+
+/* Hero image with slide-in */
+.hero-image {
+  flex: 1;
+  text-align: right;
+  animation: slideInRight 1s ease forwards;
+}
+
+.hero-image img {
+  max-height: 80vh;
+  width: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+@keyframes slideOutUp {
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideOutRight {
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes slideOutLeft {
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+.hero-text.exit {
+  animation: slideOutLeft 0.5s forwards;
+}
+
+.hero-image.exit {
+  animation: slideOutRight 0.5s forwards;
+}
+
+.nav-toggle {
+  display: none;
+  font-size: 1.8em;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+  body {
+    overflow: auto;
+  }
+
+  .nav-right {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    background-color: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 70px;
+    right: 10%;
+    width: 150px;
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  .nav-right.show {
+    display: flex;
+    z-index: 100;
+  }
+
+  .nav-toggle {
+    display: block;
+    cursor: pointer;
+  }
+
+  .nav-toggle img{
+    width: 40px;
+  }
+
+  .hero {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 80px;
+    height: auto;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-text {
+    margin-top: 0px;
+    padding: 12px;
+    text-align: center;
+    overflow: hidden;
+    
+  }
+
+  .hero-image {
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .hero-image img {
+    max-width: 80%;
+    height: auto;
+  }
+
+  .hero-text .line1,
+  .hero-text .line2 {
+    font-size: 2em;
+    white-space: normal;
+    
+  }
+
+  .btn {
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 425px) {
+  .hero-text .line1,
+  .hero-text .line2 {
+    font-size: 1.5em;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9em;
+  }
+}

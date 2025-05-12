@@ -1,0 +1,297 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #1B1B1B, #333333);
+  color: white;
+}
+
+header {
+  background-color: transparent;
+  padding: 20px 0;
+}
+
+.nav-container {
+  margin-top: -20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10%;
+}
+  
+  .nav-left .home-link {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #00BCD4;
+    text-decoration: none;
+  }
+  
+  .nav-right {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+  }
+  
+  .nav-right li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+  }
+
+  .nav-right li a.active {
+      color: #00BCD4;
+      font-weight: 600;
+    }
+  
+
+.nav-right li a:hover,
+.nav-right li a.active {
+    color: #00BCD4;
+}
+  
+  
+  .contact-container {
+    max-width: 500px;
+    margin: 0px auto;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .contact-container h1{
+    text-align: center;
+    font-size: 15px;
+    font-weight: lighter;
+    margin: 10px 10px;
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #1e1e1e;
+    padding: 30px;
+    border-radius: 8px;
+  }
+  
+  .contact-form label {
+    text-align: left;
+    font-weight: 500;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2d2d2d;
+    color: white;
+    resize: none;
+  }
+  
+  .contact-form input:read-only {
+    background-color: #444;
+    color: #ccc;
+  }
+  
+  .contact-form button {
+    padding: 10px;
+    background-color: #00BCD4;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .contact-form button:hover {
+    background-color: #00BCD4;
+  }
+.success-message,
+.error-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers the messages */
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 15px 30px;
+  border-radius: 4px;
+  color: white;
+  display: none; /* Initially hidden */
+  z-index: 9999; /* Ensures the message is on top */
+  animation: popIns 0.5s ease, popOuts 1s ease 2s forwards; /* Pop-in and pop-out effect */
+}
+
+/* Success message styles */
+.success-message {
+  background-color: rgba(0, 128, 0, 0.7);
+}
+
+/* Error message styles */
+.error-message {
+  background-color: rgba(255, 0, 0, 0.7);
+}
+
+/* Pop-in animation */
+@keyframes popIns{
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Pop-out animation (after 1 second) */
+@keyframes popOuts {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+  
+  @keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes popOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+/* Apply pop-in animation on load */
+.contact-container,
+.contact-container h1,
+.contact-container h2 {
+  opacity: 0;
+  animation: popIn 0.5s ease forwards;
+}
+
+.contact-container {
+  animation-delay: 0.2s;
+}
+
+.contact-container h2 {
+  animation-delay: 0.4s;
+}
+
+.contact-container h1 {
+  animation-delay: 0.6s;
+}
+
+@keyframes popOut {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+.exit-animation .contact-container,
+.exit-animation h1,
+.exit-animation h2 {
+  animation: popOut 0.5s ease forwards;
+}
+
+.nav-toggle {
+  display: none;
+  font-size: 1.8em;
+  color: white;
+}
+
+@media (max-width: 768px) {
+
+ body{
+  overflow: auto;
+ }
+
+ .nav-right {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    background-color: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 70px;
+    right: 10%;
+    width: 150px;
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  .nav-right.show {
+    display: flex;
+    z-index: 100;
+  }
+
+  .nav-toggle {
+    display: block;
+    cursor: pointer;
+  }
+
+  .nav-toggle img{
+    width: 40px;
+  }
+
+  /* Contact container adjustments for mobile */
+  .contact-container {
+    padding: 20px;
+    max-width: 90%; /* Reduce the width on mobile */
+  }
+
+  /* Adjust form inputs for mobile */
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 1em; /* Slightly larger input text */
+    padding: 12px;
+  }
+
+  /* Adjust grid layout if necessary (for contact form) */
+  .contact-form {
+    padding: 20px;
+    gap: 10px;
+  }
+}
+
+/* For mobile navbar toggle functionality */
+.nav-toggle.active + .nav-right {
+  display: flex !important;
+}

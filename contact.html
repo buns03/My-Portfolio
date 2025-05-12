@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact</title>
+  <link rel="stylesheet" href="css/contact.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <nav class="nav-container">
+      <div class="nav-left"><a href="home.html" class="home-link">Home</a></div>
+      <div class="nav-toggle">
+          <img src="css/assets/menu.png"/>
+        </div>
+      <ul class="nav-right">
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="socials.html">Socials</a></li>
+        <li><a class="active" href="contact.html">Contacts</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="contact-container">
+    <h2>Reach Out!</h2>
+    <h1>You can also email me through any platform using the given email!</h1>
+    <form class="contact-form" onsubmit="sendMail(event)">
+      <label for="from">From:</label>
+      <input type="email" id="from" name="from" placeholder="Your email" required />
+
+      <label for="to">To:</label>
+      <input type="email" id="to" name="to" value="faderangajustin@gmail.com" readonly />
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="6" placeholder="Input message here" required></textarea>
+
+      <button type="submit">Send Email</button>
+      <p id="success-msg" class="success-message" style="display: none;">Message sent successfully!</p>
+      <p id="error-msg" class="error-message" style="display: none;">Failed to send email. Please try again.</p>
+    </form>
+  </main>
+
+  <!-- EmailJS SDK v4 - Use the correct version -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  
+  <!-- Initialize EmailJS with your public key -->
+  <script type="text/javascript">
+    (function() {
+      emailjs.init("JGvSQ6KPPK3e07voc"); // Your public key here
+    })();
+  </script>
+
+  <!-- External JS file, place this at the bottom to make sure the form exists before this is run -->
+  <script type="module" src="script/contact.js"></script>
+</body>
+</html>
