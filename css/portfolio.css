@@ -75,6 +75,7 @@ h3 {
   object-fit: cover;
   cursor: pointer;
   transition: transform 0.3s;
+  border-radius: 20px;
 }
 
 .image-grids img {
@@ -83,6 +84,16 @@ h3 {
   object-fit: cover;
   cursor: pointer;
   transition: transform 0.3s;
+  border-radius: 20px;
+}
+
+.big-image img{
+  width: auto;
+  height: 150px;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s;
+  border-radius: 20px;
 }
 
 .image-grid img:hover {
@@ -90,6 +101,10 @@ h3 {
 }
 
 .image-grids img:hover {
+  transform: scale(1.05);
+}
+
+.big-image img:hover {
   transform: scale(1.05);
 }
 
@@ -231,9 +246,7 @@ h3 {
 
 
 
-/* ==== Animation ==== */
 
-/* Slide-in from the left */
 @keyframes slideIn {
   0% {
     opacity: 0;
@@ -327,23 +340,32 @@ button:hover {
   }
 
   .image-grid {
-    grid-template-columns: 1fr; /* Stack images in a single column */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
     gap: 10px;
-    align-items: center;
+    justify-items: flex-start;
   }
-}
 
+  .image-grids{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 10px;
+    justify-items: flex-start;
+  }
 
-/* Style for toggle button (hamburger) */
+  .big-image img{
+    width: 300px;
+    height: auto;
+  }
+
 .nav-toggle-label {
   display: none;
   font-size: 1.8em;
   cursor: pointer;
   color: white;
-}
-@media (max-width: 768px) {
+
   .nav-right {
-    display: none; /* Hide by default */
+    display: none; 
     flex-direction: column;
     gap: 15px;
     background-color: rgba(0, 0, 0, 0.9);
@@ -353,22 +375,24 @@ button:hover {
     width: 150px;
     border-radius: 8px;
     padding: 10px;
-    z-index: 100; /* Ensure it is above other elements */
+    z-index: 100; 
   }
 
-  /* When "show" class is added, display the nav menu */
+
   .nav-right.show {
     display: flex;
   }
 
-  /* Toggle button (hamburger) */
+
   .nav-toggle {
     display: block;
     cursor: pointer;
-    z-index: 101; /* Ensure it’s clickable above other elements */
+    z-index: 101; 
   }
 
   .nav-toggle img {
     width: 40px;
-  }
+  } 
+
+}
 }
