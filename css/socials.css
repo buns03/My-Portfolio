@@ -67,7 +67,7 @@
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    grid-template-columns: repeat(5, 1fr); /* 4 columns */
     gap: 5px; /* small gap between icons */
     justify-items: center;
 }
@@ -87,7 +87,7 @@
     margin: 0px;
 }
 
-.service-box:hover {
+.service-box img:hover {
     transform: translateY(-5px);
 }
 
