@@ -314,31 +314,34 @@ button:hover {
 }
 
 @media (max-width: 768px) {
-  .nav-toggle {
-    display: block;
-  }
-
-  .nav-toggle img {
-    width: 40px;
-  }
-
   .nav-right {
     display: none;
     flex-direction: column;
     gap: 15px;
-    background-color: #222;
-    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.9);
     position: absolute;
     top: 70px;
     right: 10%;
+    width: 150px;
     border-radius: 8px;
-    z-index: 100;
+    padding: 10px;
   }
 
   .nav-right.show {
     display: flex;
+    z-index: 100;
   }
 
+  .nav-toggle {
+    display: block;
+    cursor: pointer;
+  }
+
+  .nav-toggle img{
+    width: 40px;
+  }
+
+ 
   .image-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr); 
@@ -358,41 +361,5 @@ button:hover {
     height: auto;
   }
 
-.nav-toggle-label {
-  display: none;
-  font-size: 1.8em;
-  cursor: pointer;
-  color: white;
 
-  .nav-right {
-    display: none; 
-    flex-direction: column;
-    gap: 15px;
-    background-color: rgba(0, 0, 0, 0.9);
-    position: absolute;
-    top: 70px;
-    right: 10%;
-    width: 150px;
-    border-radius: 8px;
-    padding: 10px;
-    z-index: 100; 
-  }
-
-
-  .nav-right.show {
-    display: flex;
-  }
-
-
-  .nav-toggle {
-    display: block;
-    cursor: pointer;
-    z-index: 101; 
-  }
-
-  .nav-toggle img {
-    width: 40px;
-  } 
-
-}
 }
